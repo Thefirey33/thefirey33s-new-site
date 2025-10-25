@@ -5,5 +5,5 @@
 </script>
 
 <LinkButton linkTowards={hrefSource}>
-	<img src={imageSourceLink} alt="Link Button" />
+	<img src={imageSourceLink} alt="Link Button" draggable="false" />
 </LinkButton>

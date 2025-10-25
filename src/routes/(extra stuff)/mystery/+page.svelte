@@ -53,7 +53,7 @@
 	/**
 	 * The delay of the current dialog.
 	 */
-	const dialogDelay = 500;
+	const dialogDelay = 100;
 
 	/**
 	 * The current width of the dialog we are doing.
@@ -121,7 +121,7 @@
 							currentStringWidth = 0;
 							dialogIndex++;
 							goThroughDialog();
-						}, dialogDelay);
+						}, dialogDelay * 10);
 					}
 				},
 				(i + 1) * dialogDelay
@@ -138,7 +138,9 @@
 			setTimeout(() => {
 				charaHandler.src = URL.createObjectURL(r);
 				scawyMusicPlayer.play();
-				goThroughDialog();
+				setTimeout(() => {
+					goThroughDialog();
+				}, 1000);
 			}, 1000);
 		});
 		// fetch the jumpscare image and store it somewhere.

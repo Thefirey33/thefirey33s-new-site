@@ -7,10 +7,15 @@ body {
 	/* background animation */
 	animation: slowBackgroundMove infinite 10s both linear;
 	background-repeat: no-repeat;
-	background-size: auto 100%;
+	background-size: 100% 100%;
 	background-position: 50%;
 	background-image: var(--background-img);
 	animation: var(--current-background-animation) infinite 0.1s;
+}
+
+@font-face {
+	font-family: 'Cool Font';
+	src: url('$lib/assets/cool_font.woff2');
 }
 @keyframes scare {
 	from {
@@ -25,6 +30,11 @@ body {
 	.flash-text {
 		animation: flash-text-please 0.3s infinite step-end both;
 	}
+	.cplusplusbackground {
+		background-color: black;
+		background-image: url('$lib/assets/imgs/game_assets/cpluspluslogo.gif');
+		animation: backgroundMove 20s infinite linear;
+	}
 }
 @keyframes flash-text-please {
 	0% {
@@ -32,6 +42,17 @@ body {
 	}
 	50% {
 		color: var(--color-red-500);
+	}
+}
+
+@keyframes backgroundMove {
+	from {
+		background-position-y: 0%;
+		background-position-x: 0%;
+	}
+	to {
+		background-position-y: 100%;
+		background-position-x: 100%;
 	}
 }
 

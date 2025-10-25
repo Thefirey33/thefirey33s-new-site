@@ -20,7 +20,9 @@
 
 	// If the DOM successfully mounts, then the loading has finished.
 	onMount(() => {
-		isCurrentlyLoading = false;
+		window.addEventListener('load', () => {
+			isCurrentlyLoading = false;
+		});
 	});
 </script>
 
@@ -35,7 +37,7 @@
 {#if isCurrentlyLoading}
 	<!-- LOADING PLEASE WAIT, 100% -->
 	<!-- DougDoug moment -->
-	<div class="absolute bg-black w-full h-screen top-0 left-0 z-5 flex flex-col">
+	<div class=" bg-black w-full h-screen top-0 left-0 z-5 flex flex-col fixed">
 		<span class="text-center m-auto">
 			<h1 class="md:text-2xl">Loading Please Wait.... 100%</h1>
 			<audio src={LoadingPleaseWaitOneHundredPercent} autoplay></audio>

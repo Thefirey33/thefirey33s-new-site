@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import FacilityWalpaper from '$lib/assets/imgs/walpapers/deltaruneArt.gif';
 	import Tool from '$lib/components/Tools/Tool.svelte';
+	import { coolUsername, isMobile } from '$lib';
 
 	// tadaa!!! sound
 	import TADAAA from '$lib/assets/sounds/tada.wav';
@@ -10,6 +11,7 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import BaseButton from '$lib/components/General/BaseButton.svelte';
+	import LinkButton from '$lib/components/General/LinkButton.svelte';
 
 	// the first tool!
 	let textBoxValue = $state('');
@@ -97,7 +99,12 @@
 	<!-- this is the thefirey33 detector tool. -->
 	<Tool toolName="thefirey33 detector.">
 		<div class="flex flex-col items-center">
-			<input type="text" class="bg-black outline-2 border-0 rounded-md" bind:value={textBoxValue} />
+			<input
+				type="text"
+				name="name"
+				class="bg-black outline-2 border-0 rounded-md"
+				bind:value={textBoxValue}
+			/>
 			<h1 class={isFirey == 'yes' ? 'text-3xl flash-text' : 'text-xs'}>{isFirey}</h1>
 			<audio src={TADAAA} bind:this={tadaaAudioPlayerElement}></audio>
 			<audio src={TYPE} bind:this={typeAudioPlayerElement} volume={0.1}></audio>
@@ -111,6 +118,7 @@
 			<input
 				bind:value={coolnessValue}
 				class="cursor-ew-resize"
+				name="range"
 				id="coolness-factor"
 				type="range"
 				min="0"
@@ -119,6 +127,8 @@
 			<input
 				bind:value={coolUsernameTextBox}
 				type="text"
+				name="username"
+				autocomplete="on"
 				class="bg-black outline-2 border-0 rounded-md"
 			/>
 			<BaseButton
@@ -135,6 +145,7 @@
 						.then((r) => r.json())
 						.then((text) => {
 							response = text.response;
+							$coolUsername = response;
 							// lazy ahh spam protection
 							isSpamProtection = true;
 
@@ -149,5 +160,12 @@
 			>
 			<p>{response}</p>
 		</div>
+	</Tool>
+
+	<Tool toolName="C++ Boss Battle">
+		<LinkButton linkTowards="/cplusplusboss" disabled={$isMobile}>GO!!</LinkButton>
+		{#if $isMobile}
+			<h1>please get a suitable device.</h1>
+		{/if}
 	</Tool>
 </span>
