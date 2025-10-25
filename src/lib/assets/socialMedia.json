@@ -1,0 +1,38 @@
+[
+	{
+		"socialMediaName": "YouTube",
+		"socialMediaIcon": "/imgs/youtube.webp",
+		"href": "https://www.youtube.com/@Thefirey33",
+		"id": 0
+	},
+	{
+		"socialMediaName": "Reddit",
+		"socialMediaIcon": "/imgs/reddit.png",
+		"href": "https://www.reddit.com/user/Thefirey33/",
+		"id": 1
+	},
+	{
+		"socialMediaName": "GitHub",
+		"socialMediaIcon": "/imgs/github.png",
+		"href": "https://github.com/thefirey33",
+		"id": 2
+	},
+	{
+		"socialMediaName": "Instagram",
+		"socialMediaIcon": "/imgs/instagram.webp",
+		"href": "https://www.instagram.com/thefirey33/",
+		"id": 3
+	},
+	{
+		"socialMediaName": "Twitter",
+		"socialMediaIcon": "/imgs/twitter.png",
+		"href": "https://x.com/thefirey33",
+		"id": 4
+	},
+	{
+		"socialMediaName": "Twitch",
+		"socialMediaIcon": "/imgs/twitch.webp",
+		"href": "https://www.twitch.tv/thefirey33",
+		"id": 5
+	}
+]

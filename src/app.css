@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+body {
+	@apply bg-fixed font-['Consolas'] text-white bg-black;
+	/* background animation */
+	animation: slowBackgroundMove infinite 10s both linear;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: 50%;
+	background-image: var(--background-img);
+	animation: var(--current-background-animation) infinite 0.1s;
+}
+@keyframes scare {
+	from {
+		background-color: red;
+	}
+}
+
+@layer components {
+	.image-rendering-pixelated {
+		image-rendering: crisp-edges;
+	}
+	.flash-text {
+		animation: flash-text-please 0.3s infinite step-end both;
+	}
+}
+@keyframes flash-text-please {
+	0% {
+		color: var(--color-yellow-500);
+	}
+	50% {
+		color: var(--color-red-500);
+	}
+}
+
+:root {
+	--max-titlebar: calc(var(--spacing) * 20);
+	--background-img: url('$lib/assets/imgs/walpapers/barrens.png');
+	--current-background-animation: none;
+}
