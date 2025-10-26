@@ -6,6 +6,7 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
 	// the children...
 	let { children } = $props();
@@ -13,6 +14,9 @@
 	const mysteryActive = $derived(page.route.id?.includes('mystery'));
 	// easter egg with a chance.
 	const showTurkiye = $derived(Math.random() < 0.1);
+
+	// Inject the vercel speed insight system.
+	injectSpeedInsights();
 
 	// Check if we are currently navigating, or loading something.
 	beforeNavigate(() => (isCurrentlyLoading = true));
