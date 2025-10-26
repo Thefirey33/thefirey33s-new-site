@@ -92,10 +92,7 @@
 	});
 </script>
 
-<span class="block gap-2">
-	<h1 class="text-center text-2xl bg-yellow-500 text-black shadow-[2px]">
-		stuff here is made out of pure boredom and <strong>despair.</strong>
-	</h1>
+<span>
 	<!-- this is the thefirey33 detector tool. -->
 	<Tool toolName="thefirey33 detector.">
 		<div class="flex flex-col items-center">
@@ -105,7 +102,7 @@
 				class="bg-black outline-2 border-0 rounded-md"
 				bind:value={textBoxValue}
 			/>
-			<h1 class={isFirey == 'yes' ? 'text-3xl flash-text' : 'text-xs'}>{isFirey}</h1>
+			<p class={isFirey == 'yes' ? 'text-3xl flash-text' : 'text-xs'}>{isFirey}</p>
 			<audio src={TADAAA} bind:this={tadaaAudioPlayerElement}></audio>
 			<audio src={TYPE} bind:this={typeAudioPlayerElement} volume={0.1}></audio>
 		</div>
@@ -165,7 +162,7 @@
 	<Tool toolName="C++ Boss Battle">
 		<LinkButton linkTowards="/cplusplusboss" disabled={$isMobile}>GO!!</LinkButton>
 		{#if $isMobile}
-			<h1>please get a suitable device.</h1>
+			<p>please get a suitable device.</p>
 		{/if}
 	</Tool>
 </span>

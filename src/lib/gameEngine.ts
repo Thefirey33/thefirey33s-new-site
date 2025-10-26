@@ -250,7 +250,7 @@ export class PlayerObject extends GameObject {
 				? PlayerObject.PlayerFlicker - GameEngine.deltaTime * 10
 				: PlayerObject.PlayerFlicker;
 		GameEngine.Objects.forEach((nextObject) => {
-			const peaceScore = 2.5;
+			const peaceScore = 3;
 			if (
 				this.position.x > nextObject.position.x - nextObject.textureSize.x / peaceScore &&
 				this.position.x < nextObject.position.x + nextObject.textureSize.x / peaceScore &&

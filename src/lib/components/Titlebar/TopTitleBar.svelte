@@ -53,19 +53,19 @@
 			{/if}
 		</div>
 		{#if !$isMobile}
-			<h3 class="text-xs">developing garbage since 2018.</h3>
+			<h3 class="text-xs">full-stack coding, game-design, game-programming.</h3>
 		{/if}
 	</a>
+	<ImageLinkButton hrefSource="/about" imageSourceLink={About} />
 	<LinkButton linkTowards="/toolz">
 		<span class="flex flex-row items-center">
 			<img src={Hamber} width="30" alt="hamber" />
 		</span>
 	</LinkButton>
-	<ImageLinkButton hrefSource="/prog" imageSourceLink={Programming} />
+	<ImageLinkButton hrefSource="/programming" imageSourceLink={Programming} />
 	<ImageLinkButton hrefSource="/projects" imageSourceLink={Projects} />
 	<ImageLinkButton hrefSource="/socialMedia" imageSourceLink={SocialMedia} />
 	<ImageLinkButton hrefSource="/opinions" imageSourceLink={Opinions} />
-	<ImageLinkButton hrefSource="/about" imageSourceLink={About} />
 	{#if showTurkiye}
 		<LinkButton linkTowards="/turkiye">???</LinkButton>
 	{/if}

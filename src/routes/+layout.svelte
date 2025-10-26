@@ -49,6 +49,6 @@
 	<TopTitleBar {showTurkiye} />
 {/if}
 <!-- the top titlebar that loads practically everywhere -->
-<div class={!mysteryActive ? 'md:ml-0 ml-(--max-titlebar) md:pt-40' : ''}>
+<div class={!mysteryActive ? 'md:ml-0 ml-(--max-titlebar) md:pt-20' : ''}>
 	{@render children?.()}
 </div>

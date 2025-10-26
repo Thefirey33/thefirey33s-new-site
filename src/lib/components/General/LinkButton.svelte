@@ -5,11 +5,15 @@
 
 	let { linkTowards, children, disabled = false } = $props();
 	let computerClickSound: HTMLAudioElement;
+
+	let isHovered = $state(false);
 </script>
 
 <!-- cool link button -->
 <a
 	href={resolve(linkTowards)}
+	onmouseenter={() => (isHovered = true)}
+	onmouseleave={() => (isHovered = false)}
 	onclick={() => {
 		computerClickSound.currentTime = 0;
 		computerClickSound.play();
@@ -19,4 +23,7 @@
 >
 	{@render children()}
 	<audio src={ClickSound} bind:this={computerClickSound} volume="0.4"></audio>
+	{#if isHovered}
+		<h1 class="fixed w-max bg-black ring-2 rounded-md">D:\{linkTowards.replace('/', '')}</h1>
+	{/if}
 </a>
