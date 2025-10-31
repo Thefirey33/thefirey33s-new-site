@@ -166,5 +166,7 @@
 		style={`scale: ${charaAttributes.scale}; transform: translate(${charaAttributes.x}px, ${charaAttributes.y}px)`}
 		draggable={false}
 	/>
-	<p class="text-center absolute w-full bottom-50 block select-none">{charaSpeech}</p>
+	<p class="text-center absolute w-full bottom-50 text-2xl block select-none font-[Cool_Font]">
+		{charaSpeech}
+	</p>
 </div>

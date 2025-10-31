@@ -3,7 +3,7 @@
 	import Info from '$lib/assets/toolbar/about.png';
 </script>
 
-<div class="grid gap-2 bg-black md:m-3 mt rounded-xl ring-2 p-5 items-center select-none">
+<div class="grid gap-2 bg-black md:m-10 mt rounded-xl ring-2 p-5 items-center select-none">
 	<div class="flex flex-row ml-auto mr-auto items-center">
 		<img src={Info} alt="Info" />
 		<h1 class="text-center text-2xl ml-5">About</h1>
@@ -25,6 +25,16 @@
 		<li class="mt-5">
 			OneShot is owned / developed by FutureCat LLC. All assets belonging to FutureCat LLC or
 			Nightmargin, belong to their respective owners.
+		</li>
+		<li class="mt-5">
+			The Archive Section's background music is from <a
+				class="underline"
+				href="https://www.youtube.com/watch?v=GQ6r9JrXfwo">here</a
+			>. Please support the original creator of the music.
+		</li>
+		<li class="mt-5">
+			All other assets, not owned by me are licensed under Creative Commons Attribution-ShareAlike
+			4.0/3.0 International License.
 		</li>
 	</ul>
 	<hr class="mt-5 mb-5" />

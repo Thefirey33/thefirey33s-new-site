@@ -4,16 +4,38 @@
 	import { onMount } from 'svelte';
 
 	import { GameEngine, GameEngineDrawing, saveState, Vector2 } from '$lib/gameEngine';
-	import { achievementGet, BACKGROUND_CSS_VAL, getCurrentState, isDead } from '$lib';
+	import {
+		achievementGet,
+		BACKGROUND_CSS_VAL,
+		getCurrentState,
+		isDead,
+		websiteIconURL
+	} from '$lib';
 	import BaseButton from '$lib/components/General/BaseButton.svelte';
 	import BarrensWallpaper from '$lib/assets/imgs/walpapers/barrens.png';
-	import NikoWallpaper from '$lib/assets/imgs/walpapers/nikoFactory.png';
+	import NikoWallpaper from '$lib/assets/imgs/walpapers/niko_factory.png';
 	import Achievement from '$lib/components/General/Achievement.svelte';
+	import WebsiteGuy from '$lib/assets/imgs/website_guy.gif';
 
 	let HTMLCanvas: HTMLCanvasElement;
+
+	// difficulty slider stuff
+	let diff = $state(0.0);
+	$effect(() => {
+		GameEngine.punishment_factor = diff;
+	});
+
+	// difficulty comments
+	const diffComments: string[] = [
+		'easy',
+		'hard',
+		'aw hell nah',
+		'impossible',
+		'you serious lil bro?'
+	];
+
 	let isGameRunning = $state(false);
 	onMount(() => {
-	
 		// Set the wallpaper, please.
 		document.documentElement.style.setProperty(BACKGROUND_CSS_VAL, `url(${NikoWallpaper})`);
 		// Check if the user has achieved said thing.
@@ -58,6 +80,7 @@
 		});
 		return () => {
 			saveState();
+			$websiteIconURL = WebsiteGuy;
 			GameEngine.ENGINE_RUNNING = false;
 			GameEngine.STOP_ENGINE = true;
 			GameEngine.Dismount();
@@ -82,6 +105,21 @@
 			}}
 			enabled={$isDead}>restart</BaseButton
 		>
+		<label for="punishment_factor"
+			>punishment factor: {diffComments[
+				Math.floor((diff / 2.0) * (diffComments.length - 1))
+			]}</label
+		>
+		<input
+			type="range"
+			name="punishment_factor"
+			class="m-5"
+			id="punishment_factor"
+			min="0.0"
+			max="2.0"
+			step="0.1"
+			bind:value={diff}
+		/>
 		<div class="bg-black w-full h-fit rounded-md ring-2 p-3">
 			<h1 class="text-center text-2xl">Instruction:</h1>
 			<ul class="list-disc ml-5">

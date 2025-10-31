@@ -1,17 +1,17 @@
 <script lang="ts">
-	import IconOfWebsite from '$lib/assets/favicon.ico';
 	import LinkButton from '../General/LinkButton.svelte';
 	import ConfirmSound from '$lib/assets/sounds/confirm.wav';
-	import Hamber from '$lib/assets/imgs/general/hamber.ico';
+	import Hammer from '$lib/assets/toolbar/tools.png';
 
 	import ImageLinkButton from '$lib/components/General/ImageLinkButton.svelte';
 	import Programming from '$lib/assets/toolbar/programming.png';
 	import Projects from '$lib/assets/toolbar/projects.png';
 	import About from '$lib/assets/toolbar/about.png';
 	import SocialMedia from '$lib/assets/toolbar/social_media.png';
-	import Opinions from '$lib/assets/toolbar/speech.png';
+	import AbsolutePeakApplication from '$lib/assets/toolbar/absolute_peak_application.png';
+	import Archive from '$lib/assets/toolbar/archive.png';
 	import { resolve } from '$app/paths';
-	import { isMobile } from '$lib';
+	import { isMobile, websiteIconURL } from '$lib';
 	import { onMount } from 'svelte';
 
 	let confirmAudio: HTMLAudioElement;
@@ -28,10 +28,10 @@
 
 <!-- this is the top titlebar, responsible for playing stuff -->
 <div
-	class="bg-black md:w-full w-(--max-titlebar) md:h-fit h-full min-h-15 outline-2 pl-3 outline-white rounded-r-md flex md:flex-row flex-col md:items-center mb-5 fixed"
+	class="bg-black md:w-full w-(--max-titlebar) md:h-fit h-full min-h-15 md:pl-3 border-2 rounded-r-md flex md:flex-row flex-col items-center mb-5 md:sticky fixed shadow-2xl shadow-black"
 >
 	<a
-		class="flex flex-col text-white md:text-3xl font-bold m-3 select-none hover:bg-gray-800"
+		class="flex flex-col text-white md:text-3xl font-bold m-3 select-none hover:bg-gray-500"
 		href={resolve('/')}
 		draggable="false"
 		onclick={() => {
@@ -41,12 +41,12 @@
 	>
 		<div class="flex flex-row items-center">
 			<img
-				src={IconOfWebsite}
+				src={$websiteIconURL}
 				alt="thefirey33"
 				draggable="false"
-				width="30"
-				height="30"
-				class="image-rendering-pixelated w-10 h-10 mr-3"
+				width="50"
+				height="50"
+				class="image-rendering-pixelated md:mr-5"
 			/>
 			{#if !$isMobile}
 				thefirey33
@@ -59,13 +59,17 @@
 	<ImageLinkButton hrefSource="/about" imageSourceLink={About} />
 	<LinkButton linkTowards="/toolz">
 		<span class="flex flex-row items-center">
-			<img src={Hamber} width="30" alt="hamber" />
+			<img src={Hammer} width="30" alt="hamber" />
 		</span>
 	</LinkButton>
 	<ImageLinkButton hrefSource="/programming" imageSourceLink={Programming} />
 	<ImageLinkButton hrefSource="/projects" imageSourceLink={Projects} />
 	<ImageLinkButton hrefSource="/socialMedia" imageSourceLink={SocialMedia} />
-	<ImageLinkButton hrefSource="/opinions" imageSourceLink={Opinions} />
+	<ImageLinkButton hrefSource="/archive" imageSourceLink={Archive} />
+	<ImageLinkButton
+		hrefSource="/absolutepeakapplication"
+		imageSourceLink={AbsolutePeakApplication}
+	/>
 	{#if showTurkiye}
 		<LinkButton linkTowards="/turkiye">???</LinkButton>
 	{/if}

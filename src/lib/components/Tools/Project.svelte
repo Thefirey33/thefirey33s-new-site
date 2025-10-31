@@ -17,7 +17,7 @@
 	<div class="flex flex-row items-center w-full">
 		<img
 			src={imgSource !== '' ? imgSource : BaseTexture}
-			class="md:w-30 w-10 m-2 rounded-xl"
+			class="md:w-30 w-10 m-2 rounded-xl image-rendering-pixelated"
 			alt="No Texture"
 			width="20"
 			draggable="false"

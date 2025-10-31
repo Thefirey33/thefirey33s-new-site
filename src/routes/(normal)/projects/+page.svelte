@@ -4,7 +4,7 @@
 </script>
 
 <div class="grid gap-5">
-	{#each AllProjects as m_project (m_project.id)}
+	{#each AllProjects as m_project, index (index)}
 		<Project
 			title={m_project.title}
 			description={m_project.description}

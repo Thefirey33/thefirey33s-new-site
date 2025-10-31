@@ -12,7 +12,7 @@
 	fetchpriority="high"
 	draggable="false"
 	alt="spinning noik"
-	class="opacity-50 md:scale-300 m-auto {BASE_CSS_DEF} right-0"
+	class="opacity-50 md:scale-300 m-auto absolute {BASE_CSS_DEF} right-0 -z-20"
 />
 <div class="text-center m-auto w-fit h-fit {BASE_CSS_DEF} select-none">
 	<h1 class="md:text-4xl text-2xl">About THEFIREY33</h1>

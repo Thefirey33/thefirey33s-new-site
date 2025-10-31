@@ -1,77 +1,62 @@
 [
 	{
 		"name": "C",
-		"details": "the mother of every language.",
-		"id": 0
+		"details": "the mother of every language."
 	},
 	{
 		"name": "C#",
-		"details": "my favorite out of the bunch.",
-		"id": 1
+		"details": "my favorite out of the bunch."
 	},
 	{
 		"name": "C++",
-		"details": "windows and many other os's were made in this!",
-		"id": 2
+		"details": "windows and many other os's were made in this!"
 	},
 	{
 		"name": "Python",
-		"details": "another favorite, the syntax and string slicing is really good.",
-		"id": 3
+		"details": "another favorite, the syntax and string slicing is really good."
 	},
 	{
 		"name": "TypeScript",
-		"details": "it's basically, if javascript became a dictator!",
-		"id": 4
+		"details": "it's basically, if javascript became a dictator!"
 	},
 	{
 		"name": "JavaScript",
-		"details": "very loosey goosey and doesn't know how to do math properly.",
-		"id": 5
+		"details": "very loosey goosey and doesn't know how to do math properly."
 	},
 	{
 		"name": "GameMakerLanguage (GML)",
-		"details": "no oop?",
-		"id": 6
+		"details": "no oop?"
 	},
 	{
 		"name": "GDScript",
-		"details": "python but not python",
-		"id": 7
+		"details": "python but not python"
 	},
 	{
 		"name": "Lua",
-		"details": "tables, tables, TABLES, TABLES!",
-		"id": 8
+		"details": "tables, tables, TABLES, TABLES!"
 	},
 	{
 		"name": "SQL",
-		"details": "pretty good language for databases.",
-		"id": 9
+		"details": "pretty good language for databases."
 	},
 	{
 		"name": "React JS",
-		"details": "very very steep learning curve.",
-		"id": 10
+		"details": "very very steep learning curve."
 	},
 	{
 		"name": "Svelte + SvelteKit",
-		"details": "the most fun i have ever had developing",
-		"id": 11
+		"details": "the most fun i have ever had developing"
 	},
 	{
 		"name": "Unity (Game Engine)",
-		"details": "sucks.",
-		"id": 12
+		"details": "sucks."
 	},
 	{
 		"name": "Godot (Game Engine)",
-		"details": "is really good",
-		"id": 13
+		"details": "is really good"
 	},
 	{
 		"name": "GameMaker (Game Engine)",
-		"details": "headache factory",
-		"id": 14
+		"details": "headache factory"
 	}
 ]

@@ -8,31 +8,31 @@
 	{
 		"socialMediaName": "Reddit",
 		"socialMediaIcon": "/imgs/reddit.png",
-		"href": "https://www.reddit.com/user/Thefirey33/",
-		"id": 1
+		"href": "https://www.reddit.com/user/Thefirey33/"
 	},
 	{
 		"socialMediaName": "GitHub",
 		"socialMediaIcon": "/imgs/github.png",
-		"href": "https://github.com/thefirey33",
-		"id": 2
+		"href": "https://github.com/thefirey33"
 	},
 	{
 		"socialMediaName": "Instagram",
 		"socialMediaIcon": "/imgs/instagram.webp",
-		"href": "https://www.instagram.com/thefirey33/",
-		"id": 3
+		"href": "https://www.instagram.com/thefirey33/"
 	},
 	{
 		"socialMediaName": "Twitter",
 		"socialMediaIcon": "/imgs/twitter.png",
-		"href": "https://x.com/thefirey33",
-		"id": 4
+		"href": "https://x.com/thefirey33"
 	},
 	{
 		"socialMediaName": "Twitch",
 		"socialMediaIcon": "/imgs/twitch.webp",
-		"href": "https://www.twitch.tv/thefirey33",
-		"id": 5
+		"href": "https://www.twitch.tv/thefirey33"
+	},
+	{
+		"socialMediaName": "Scratch",
+		"socialMediaIcon": "/imgs/scratch.png",
+		"href": "https://scratch.mit.edu/users/wer333/"
 	}
 ]

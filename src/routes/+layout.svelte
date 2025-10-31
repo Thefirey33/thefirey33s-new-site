@@ -2,30 +2,31 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.ico';
 	import TopTitleBar from '$lib/components/Titlebar/TopTitleBar.svelte';
-	import LoadingPleaseWaitOneHundredPercent from '$lib/assets/sounds/loading.wav';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { tooltip } from '$lib';
+	import { onMount } from 'svelte';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import LoadingPleaseWaitOneHundredPercent from '$lib/assets/sounds/loading.wav'
 
 	// the children...
 	let { children } = $props();
-	let isCurrentlyLoading = $state(true);
 	const mysteryActive = $derived(page.route.id?.includes('mystery'));
 	// easter egg with a chance.
 	const showTurkiye = $derived(Math.random() < 0.1);
+	let isLoading = $state(false);
+
+	beforeNavigate(() => isLoading = false);
+	afterNavigate(() => isLoading = true);
 
 	// Inject the vercel speed insight system.
 	injectSpeedInsights();
 
-	// Check if we are currently navigating, or loading something.
-	beforeNavigate(() => (isCurrentlyLoading = true));
-	afterNavigate(() => (isCurrentlyLoading = false));
+	let mouseLocation = $state({ x: 0, y: 0 });
 
-	// If the DOM successfully mounts, then the loading has finished.
 	onMount(() => {
-		window.addEventListener('load', () => {
-			isCurrentlyLoading = false;
+		document.addEventListener('mousemove', (event) => {
+			mouseLocation = { x: event.clientX, y: event.clientY };
 		});
 	});
 </script>
@@ -38,21 +39,28 @@
 	<meta property="charset" content="utf-8" />
 </svelte:head>
 
-{#if isCurrentlyLoading}
-	<!-- LOADING PLEASE WAIT, 100% -->
-	<!-- DougDoug moment -->
-	<div class=" bg-black w-full h-screen top-0 left-0 z-5 flex flex-col fixed">
-		<span class="text-center m-auto">
-			<h1 class="md:text-2xl">Loading Please Wait.... 100%</h1>
-			<audio src={LoadingPleaseWaitOneHundredPercent} autoplay></audio>
-		</span>
+{#if !isLoading}
+	<div class="bg-black w-screen h-screen left-0 top-0 fixed z-20 flex">
+		<p class="text-white text-center m-auto">loading please wait, 100%</p>
+		<audio src={LoadingPleaseWaitOneHundredPercent} autoplay></audio>
 	</div>
 {/if}
-
 {#if !mysteryActive}
 	<TopTitleBar {showTurkiye} />
 {/if}
+<span
+	class="fixed left-0 top-8 bottom-0 right-0"
+	style="transform: translate({mouseLocation.x}px, {mouseLocation.y}px);"
+>
+	<h1
+		style="scale: {$tooltip !== '' ? 1 : 0}; "
+		class="scroll-m-0 w-max h-max bg-black ring-2 rounded-md z-50 transition duration-150 origin-top-left"
+	>
+		{$tooltip}
+	</h1>
+</span>
 <!-- the top titlebar that loads practically everywhere -->
-<div class={!mysteryActive ? 'md:ml-0 ml-(--max-titlebar) md:pt-20' : ''}>
+<div class={!mysteryActive ? 'md:ml-0 ml-(--max-titlebar) pt-30 md:pt-0' : ''}>
 	{@render children?.()}
 </div>
+<!-- the tooltip -->

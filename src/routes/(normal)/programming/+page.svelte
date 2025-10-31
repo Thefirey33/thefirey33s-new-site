@@ -14,7 +14,7 @@
 		class="border bg-black border-gray-300 rounded-md px-4 py-2 block m-5"
 		bind:value={searchQuery}
 	/>
-	{#each programmingDetails as programmingDetails_m (programmingDetails_m.id)}
+	{#each programmingDetails as programmingDetails_m, index (index)}
 		{#if searchQuery === '' || programmingDetails_m.name
 				.toLowerCase()
 				.includes(searchQuery.toLowerCase())}

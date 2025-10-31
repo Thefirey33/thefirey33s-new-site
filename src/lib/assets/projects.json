@@ -1,36 +1,37 @@
 [
 	{
+		"title": "Minecrap 2",
+		"description": "A parody of clones of Minecraft.",
+		"image": "https://raw.githubusercontent.com/Thefirey33/minecrap2/ed677b2c857e379e7af14d0d81e5e807c85a474d/assets/icon.png",
+		"link": "https://github.com/Thefirey33/minecrap2"
+	},
+	{
 		"title": "The Nikodex",
 		"description": "Place of Nikosonas.",
 		"image": "https://raw.githubusercontent.com/Niko-Dex/.github/refs/heads/main/profile/logo.png",
-		"link": "https://github.com/Niko-Dex",
-		"id": 0
+		"link": "https://github.com/Niko-Dex"
 	},
 	{
 		"title": "Feed The Noik!",
 		"description": "A game where you feed the Noik, their favorite thing... PANCAKES!",
 		"image": "https://github.com/Thefirey33/feed-the-noik/raw/master/public/niko_pancake.jpg",
-		"link": "https://github.com/Thefirey33/feed-the-noik",
-		"id": 1
+		"link": "https://github.com/Thefirey33/feed-the-noik"
 	},
 	{
 		"title": "This Site",
 		"description": "the site you're currently viewing.",
 		"image": "",
-		"link": "https://github.com/Thefirey33/thefirey33s-new-site",
-		"id": 2
+		"link": "https://github.com/Thefirey33/thefirey33s-new-site"
 	},
 	{
 		"title": "Old Site",
 		"description": "Old as ass, made like shit.",
-		"link": "https://github.com/Thefirey33/thefirey33.github.io",
-		"id": 3
+		"link": "https://github.com/Thefirey33/thefirey33.github.io"
 	},
 	{
 		"title": "CrazyCattle3D Extended",
 		"description": "A mod for CrazyCattle3D, peak game 🥀",
 		"image": "https://img.itch.zone/aW1nLzIxMjgxMTc5LnBuZw==/315x250%23c/iNxxD5.png",
-		"link": "https://thefirey33.itch.io/crazycattle3d-extended",
-		"id": 4
+		"link": "https://thefirey33.itch.io/crazycattle3d-extended"
 	}
 ]

@@ -8,8 +8,10 @@ import HurtSound from '$lib/assets/sounds/game/hurt.wav';
 import BreakSound from '$lib/assets/sounds/game/snd_break1_c.wav';
 import CongratsSound from '$lib/assets/sounds/game/success.mp3';
 import ShatterSound from '$lib/assets/sounds/game/snd_break2_c.wav';
+import WebsiteGuyJam from '$lib/assets/imgs/website_guy_jam.gif';
+import WebsiteGuy from '$lib/assets/imgs/website_guy.gif';
 
-import { achievementGet, achievementName, coolUsername, isDead } from '$lib';
+import { achievementGet, achievementName, coolUsername, isDead, websiteIconURL } from '$lib';
 
 export const ALREADY_DONE_ASSETS: Map<string, string> = new Map<string, string>();
 /**
@@ -144,12 +146,13 @@ export class PlayerObject extends GameObject {
 	public constructor(position: Vector2, textureSource: string) {
 		super(position, textureSource);
 	}
-	public renderThisObject(): void {
+	public renderThisObject(punishment_factor: number = 0): void {
 		if (PlayerObject.PlayerHealth <= 0) {
 			switch (this.DeathAnimationPhase) {
 				case 0:
 					// Firstly, save the highscore. If possible.
 					saveState();
+					websiteIconURL.set(WebsiteGuy);
 					// Show UI button for resetting.
 					isDead.set(true);
 					this.DeathAnimationPhase = 1;
@@ -250,7 +253,7 @@ export class PlayerObject extends GameObject {
 				? PlayerObject.PlayerFlicker - GameEngine.deltaTime * 10
 				: PlayerObject.PlayerFlicker;
 		GameEngine.Objects.forEach((nextObject) => {
-			const peaceScore = 3;
+			const peaceScore = 3 - punishment_factor;
 			if (
 				this.position.x > nextObject.position.x - nextObject.textureSize.x / peaceScore &&
 				this.position.x < nextObject.position.x + nextObject.textureSize.x / peaceScore &&
@@ -517,7 +520,7 @@ export class GameEngine {
 	 * The countdown on the top of the screen.
 	 */
 
-	public static CountdownMax = 121;
+	public static CountdownMax = 117;
 
 	public static Countdown = GameEngine.CountdownMax;
 	/**
@@ -551,6 +554,7 @@ export class GameEngine {
 				GameEngine.Objects.splice(GameEngine.Objects.indexOf(object), 1);
 		});
 	}
+	public static punishment_factor = 3;
 	public static MaxPlayerHealth = 20;
 	/**
 	 * The initialization method of the game engine.
@@ -566,6 +570,7 @@ export class GameEngine {
 		GameEngine.AudioLoad(BackgroundMusic).then((r) => {
 			GameEngine.BackgroundMusicSource = new AudioSource(r);
 			GameEngine.BackgroundMusicSource.playAudio(true);
+			websiteIconURL.set(WebsiteGuyJam);
 		});
 		// Load the shatter sound.
 		GameEngine.AudioLoad(ShatterSound).then(
@@ -608,7 +613,7 @@ export class GameEngine {
 	/**
 	 * The game engine rendering function.
 	 */
-	public static GameEngineRender() {
+	public static GameEngineRender(timestamp: number) {
 		// When the player successfully completes the game.
 		if (GameEngine.Countdown <= 0) {
 			GameEngine.BackgroundMusicSource.stopAudio();
@@ -659,7 +664,7 @@ export class GameEngine {
 		// Do the last delta.
 		if (GameEngine.STOP_ENGINE) return;
 		// DeltaTime calculation.
-		GameEngine.NOW_DELTA = Date.now();
+		GameEngine.NOW_DELTA = timestamp;
 		if (GameEngine.LAST_DELTA == 0) GameEngine.LAST_DELTA = GameEngine.NOW_DELTA;
 		GameEngine.deltaTime = (GameEngine.NOW_DELTA - GameEngine.LAST_DELTA) / 1000;
 
@@ -681,7 +686,7 @@ export class GameEngine {
 		);
 
 		// Render the player to the screen.
-		GameEngine.Player.renderThisObject();
+		GameEngine.Player.renderThisObject(GameEngine.punishment_factor);
 		GameEngine.renderObjects();
 
 		if (PlayerObject.PlayerHealth > 0) {

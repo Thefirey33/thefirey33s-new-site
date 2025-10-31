@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import FacilityWalpaper from '$lib/assets/imgs/walpapers/deltaruneArt.gif';
+	import FacilityWalpaper from '$lib/assets/imgs/walpapers/deltarune_art.gif';
+	import BarrensWalpaper from '$lib/assets/imgs/walpapers/barrens.png';
 	import Tool from '$lib/components/Tools/Tool.svelte';
-	import { coolUsername, isMobile } from '$lib';
+	import { BASE_CSS_FOR_INPUT, coolUsername, isMobile } from '$lib';
 
 	// tadaa!!! sound
 	import TADAAA from '$lib/assets/sounds/tada.wav';
@@ -83,11 +84,10 @@
 		// we get the original background image.
 		// then store it, then use it later when the component is unmounted from dom
 		const baseStyle = document.documentElement.style;
-		const originalStyle = baseStyle.getPropertyValue(BACKGROUND_CSS_VAL);
 		baseStyle.setProperty(BACKGROUND_CSS_VAL, `url('${FacilityWalpaper}')`);
 
 		return () => {
-			baseStyle.setProperty(BACKGROUND_CSS_VAL, `${originalStyle}`);
+			baseStyle.setProperty(BACKGROUND_CSS_VAL, `url('${BarrensWalpaper}')`);
 		};
 	});
 </script>
@@ -96,12 +96,7 @@
 	<!-- this is the thefirey33 detector tool. -->
 	<Tool toolName="thefirey33 detector.">
 		<div class="flex flex-col items-center">
-			<input
-				type="text"
-				name="name"
-				class="bg-black outline-2 border-0 rounded-md"
-				bind:value={textBoxValue}
-			/>
+			<input type="text" name="name" class={BASE_CSS_FOR_INPUT} bind:value={textBoxValue} />
 			<p class={isFirey == 'yes' ? 'text-3xl flash-text' : 'text-xs'}>{isFirey}</p>
 			<audio src={TADAAA} bind:this={tadaaAudioPlayerElement}></audio>
 			<audio src={TYPE} bind:this={typeAudioPlayerElement} volume={0.1}></audio>
@@ -126,7 +121,7 @@
 				type="text"
 				name="username"
 				autocomplete="on"
-				class="bg-black outline-2 border-0 rounded-md"
+				class={BASE_CSS_FOR_INPUT}
 			/>
 			<BaseButton
 				onclick={() => {
