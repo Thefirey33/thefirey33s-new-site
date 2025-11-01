@@ -20,6 +20,18 @@
 		"details": "it's basically, if javascript became a dictator!"
 	},
 	{
+		"name": "Rust",
+		"details": "C++ but easier."
+	},
+	{
+		"name": "Java",
+		"details": "I love Boilerplate!"
+	},
+	{
+		"name": "PHP",
+		"details": "Personal Home Page."
+	},
+	{
 		"name": "JavaScript",
 		"details": "very loosey goosey and doesn't know how to do math properly."
 	},
