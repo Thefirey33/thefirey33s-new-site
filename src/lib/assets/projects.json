@@ -2,7 +2,7 @@
 	{
 		"title": "Minecrap 2",
 		"description": "A parody of clones of Minecraft.",
-		"image": "https://raw.githubusercontent.com/Thefirey33/minecrap2/ed677b2c857e379e7af14d0d81e5e807c85a474d/assets/icon.png",
+		"image": "",
 		"link": "https://github.com/Thefirey33/minecrap2"
 	},
 	{
@@ -10,6 +10,12 @@
 		"description": "Place of Nikosonas.",
 		"image": "https://raw.githubusercontent.com/Niko-Dex/.github/refs/heads/main/profile/logo.png",
 		"link": "https://github.com/Niko-Dex"
+	},
+	{
+		"title": "Railway Crossing Tycoon 2",
+		"description": "work in progress...",
+		"image": "",
+		"link": "https://github.com/Thefirey33/railway-crossing-tycoon-2"
 	},
 	{
 		"title": "Feed The Noik!",

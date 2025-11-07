@@ -11,7 +11,7 @@
 <!-- cool link button -->
 <a
 	href={resolve(linkTowards)}
-	onmouseenter={() => tooltip.set(linkTowards)}
+	onmouseenter={() => tooltip.set('D:' + linkTowards)}
 	onmouseleave={() => tooltip.set('')}
 	onclick={() => {
 		computerClickSound.currentTime = 0;
