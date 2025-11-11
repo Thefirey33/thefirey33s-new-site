@@ -66,10 +66,7 @@
 	<ImageLinkButton hrefSource="/projects" imageSourceLink={Projects} />
 	<ImageLinkButton hrefSource="/socialMedia" imageSourceLink={SocialMedia} />
 	<ImageLinkButton hrefSource="/archive" imageSourceLink={Archive} />
-	<ImageLinkButton
-		hrefSource="/absolutepeakapplication"
-		imageSourceLink={AbsolutePeakApplication}
-	/>
+	<ImageLinkButton hrefSource="/DEALZZ" imageSourceLink={AbsolutePeakApplication} />
 	{#if showTurkiye}
 		<LinkButton linkTowards="/turkiye">???</LinkButton>
 	{/if}

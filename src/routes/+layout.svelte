@@ -7,8 +7,7 @@
 	import { tooltip } from '$lib';
 	import { onMount } from 'svelte';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import LoadingPleaseWaitOneHundredPercent from '$lib/assets/sounds/loading.wav'
-
+	import LoadingPleaseWaitOneHundredPercent from '$lib/assets/sounds/loading.wav';
 	// the children...
 	let { children } = $props();
 	const mysteryActive = $derived(page.route.id?.includes('mystery'));
@@ -16,8 +15,8 @@
 	const showTurkiye = $derived(Math.random() < 0.1);
 	let isLoading = $state(false);
 
-	beforeNavigate(() => isLoading = false);
-	afterNavigate(() => isLoading = true);
+	beforeNavigate(() => (isLoading = false));
+	afterNavigate(() => (isLoading = true));
 
 	// Inject the vercel speed insight system.
 	injectSpeedInsights();

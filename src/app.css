@@ -6,20 +6,22 @@ body {
 	@apply bg-fixed font-['TerminusTTF'] text-white bg-black;
 	/* background animation */
 	background-repeat: no-repeat;
-	background-size: cover !important;
+	background-size: cover;
 	background-position: center center;
 	background-image: var(--background-img);
-	animation: var(--current-background-animation) 0.1s infinite linear;
+	animation: var(--current-background-animation) 1s infinite linear;
 }
 
 @font-face {
 	font-family: 'Cool Font';
 	src: url('$lib/assets/cool_font.woff2');
 }
+
 @font-face {
 	font-family: 'TerminusTTF';
 	src: url('$lib/assets/TerminusTTF-Bold.ttf');
 }
+
 @keyframes scare {
 	from {
 		background-color: red;
@@ -30,24 +32,49 @@ body {
 	.image-rendering-pixelated {
 		image-rendering: pixelated;
 	}
+
 	.flash-text {
 		animation: flash-text-please 0.3s infinite step-end both;
 	}
+
 	.binary-background {
 		background-color: black;
 		background-image: url('$lib/assets/toolbar/programming.png');
 		animation: backgroundMove 10s infinite linear;
 	}
+
+	.spamton-text {
+		animation: spamton-text-animation 20s infinite linear;
+		text-wrap: nowrap;
+		position: fixed;
+		-webkit-text-stroke: 0.5px black;
+	}
+
 	.cplusplusbackground {
 		background-color: black;
 		background-image: url('$lib/assets/imgs/game_assets/cpluspluslogo.gif');
 		animation: backgroundMove 20s infinite linear;
 	}
 }
+
+@keyframes spamton-text-animation {
+	from {
+		left: -100%;
+		text-shadow: 20px 20px lightpink;
+		rotate: 0deg;
+	}
+
+	to {
+		left: 100%;
+		text-shadow: 10px 10px purple;
+	}
+}
+
 @keyframes flash-text-please {
 	0% {
 		color: var(--color-yellow-500);
 	}
+
 	50% {
 		color: var(--color-red-500);
 	}
@@ -55,10 +82,13 @@ body {
 
 @keyframes backgroundMove {
 	from {
+		background-size: cover cover;
 		background-position-y: 0%;
 		background-position-x: 0%;
 	}
+
 	to {
+		background-size: cover cover;
 		background-position-y: 100%;
 		background-position-x: 100%;
 	}

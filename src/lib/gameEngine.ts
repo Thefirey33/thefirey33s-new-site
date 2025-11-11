@@ -79,7 +79,7 @@ export class Renderable {
 	 * So other more streamlined systems can render instead.
 	 * This is a polymorphic rendering base.
 	 */
-	public renderThisObject() {}
+	public renderThisObject() { }
 	public textureSource: HTMLImageElement = new Image();
 	public textureSize: Vector2 = new Vector2(0, 0);
 }
@@ -209,11 +209,11 @@ export class PlayerObject extends GameObject {
 		}
 
 		const bulletBoardXRight =
-				GameEngine.BulletBoardLocation.x + GameEngine.BulletBoardSize.x - this.textureSize.x / 2,
+			GameEngine.BulletBoardLocation.x + GameEngine.BulletBoardSize.x - this.textureSize.x / 2,
 			bulletBoardXLeft = GameEngine.BulletBoardLocation.x + this.textureSize.x / 2;
 
 		const bulletBoardYUp =
-				GameEngine.BulletBoardLocation.y + GameEngine.BulletBoardSize.y - this.textureSize.y / 2,
+			GameEngine.BulletBoardLocation.y + GameEngine.BulletBoardSize.y - this.textureSize.y / 2,
 			bulletBoardYDown = GameEngine.BulletBoardLocation.y + this.textureSize.y / 2;
 
 		// this if statement checks if we are over the bullet board's boundary line.
