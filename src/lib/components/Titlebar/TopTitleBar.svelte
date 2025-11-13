@@ -10,12 +10,15 @@
 	import SocialMedia from '$lib/assets/toolbar/social_media.png';
 	import AbsolutePeakApplication from '$lib/assets/toolbar/absolute_peak_application.png';
 	import Archive from '$lib/assets/toolbar/archive.png';
+	import ImportantEvent from '$lib/assets/toolbar/event.png';
+
 	import { resolve } from '$app/paths';
-	import { isMobile, websiteIconURL } from '$lib';
+	import { birthdayTime, isMobile, websiteIconURL, websitePosition } from '$lib';
 	import { onMount } from 'svelte';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 
 	let confirmAudio: HTMLAudioElement;
-
+	let isLoading = $state(false);
 	let { showTurkiye = false } = $props();
 
 	onMount(() => {
@@ -28,47 +31,60 @@
 
 <!-- this is the top titlebar, responsible for playing stuff -->
 <div
-	class="bg-black md:w-full w-(--max-titlebar) md:h-fit h-full min-h-15 md:pl-3 border-2 rounded-r-md flex md:flex-row flex-col items-center mb-5 md:sticky fixed shadow-2xl shadow-black"
+	class="bg-black overflow-hidden me-background md:w-full w-(--max-titlebar) md:sticky fixed shadow-2xl shadow-black md:mb-5 border-2"
+	style="transform: translate({$websitePosition.x}px, {$websitePosition.y}px);"
 >
-	<a
-		class="flex flex-col text-white md:text-3xl font-bold m-3 select-none hover:bg-gray-500"
-		href={resolve('/')}
-		draggable="false"
-		onclick={() => {
-			confirmAudio.currentTime = 0;
-			confirmAudio.play();
-		}}
-	>
-		<div class="flex flex-row items-center">
-			<img
-				src={$websiteIconURL}
-				alt="thefirey33"
-				draggable="false"
-				width="50"
-				height="50"
-				class="image-rendering-pixelated md:mr-5"
-			/>
-			{#if !$isMobile}
-				thefirey33
-			{/if}
-		</div>
-		{#if !$isMobile}
-			<h3 class="text-xs">full-stack coding, game-design, game-programming.</h3>
+	<div class="left-0 w-full flex md:flex-row flex-col bg-black/90 md:pl-3 items-center">
+		{#if isLoading}
+			<h1>Loading...</h1>
 		{/if}
-	</a>
-	<ImageLinkButton hrefSource="/about" imageSourceLink={About} />
-	<LinkButton linkTowards="/toolz">
-		<span class="flex flex-row items-center">
-			<img src={Hammer} width="30" alt="hamber" />
-		</span>
-	</LinkButton>
-	<ImageLinkButton hrefSource="/programming" imageSourceLink={Programming} />
-	<ImageLinkButton hrefSource="/projects" imageSourceLink={Projects} />
-	<ImageLinkButton hrefSource="/socialMedia" imageSourceLink={SocialMedia} />
-	<ImageLinkButton hrefSource="/archive" imageSourceLink={Archive} />
-	<ImageLinkButton hrefSource="/DEALZZ" imageSourceLink={AbsolutePeakApplication} />
-	{#if showTurkiye}
-		<LinkButton linkTowards="/turkiye">???</LinkButton>
-	{/if}
-	<audio bind:this={confirmAudio} src={ConfirmSound} volume={1}></audio>
+		<a
+			class="flex flex-col text-white md:text-3xl font-bold m-3 select-none hover:bg-gray-500"
+			href={resolve('/')}
+			draggable="false"
+			onclick={() => {
+				confirmAudio.currentTime = 0;
+				confirmAudio.play();
+			}}
+		>
+			<div class="flex flex-row items-center">
+				<img
+					src={$websiteIconURL}
+					alt="thefirey33"
+					draggable="false"
+					width="50"
+					height="50"
+					class="image-rendering-pixelated md:mr-5"
+				/>
+				{#if !$isMobile}
+					thefirey33
+				{/if}
+			</div>
+			{#if !$isMobile}
+				<h3 class="text-xs">full-stack coding, game-design, game-programming.</h3>
+			{/if}
+		</a>
+		{#if $birthdayTime}
+			<ImageLinkButton hrefSource="/bday" imageSourceLink={ImportantEvent} important={true} />
+		{/if}
+		<ImageLinkButton hrefSource="/about" imageSourceLink={About} />
+		<LinkButton linkTowards="/toolz">
+			<span class="flex flex-row items-center">
+				<img src={Hammer} width="30" alt="hamber" />
+			</span>
+		</LinkButton>
+		<ImageLinkButton hrefSource="/programming" imageSourceLink={Programming} />
+		<ImageLinkButton hrefSource="/projects" imageSourceLink={Projects} />
+		<ImageLinkButton hrefSource="/socialMedia" imageSourceLink={SocialMedia} />
+		<ImageLinkButton hrefSource="/archive" imageSourceLink={Archive} />
+		<ImageLinkButton
+			hrefSource="/DEALZZ"
+			imageSourceLink={AbsolutePeakApplication}
+			important={true}
+		/>
+		{#if showTurkiye}
+			<LinkButton linkTowards="/turkiye">???</LinkButton>
+		{/if}
+		<audio bind:this={confirmAudio} src={ConfirmSound} volume={1}></audio>
+	</div>
 </div>

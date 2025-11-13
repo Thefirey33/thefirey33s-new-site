@@ -2,11 +2,12 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.ico';
 	import TopTitleBar from '$lib/components/Titlebar/TopTitleBar.svelte';
-	import { page } from '$app/state';
+	import { navigating, page } from '$app/state';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-	import { tooltip } from '$lib';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { birthdayTime, tooltip, websitePosition } from '$lib';
 	import { onMount } from 'svelte';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 	import LoadingPleaseWaitOneHundredPercent from '$lib/assets/sounds/loading.wav';
 	// the children...
 	let { children } = $props();
@@ -20,8 +21,11 @@
 
 	// Inject the vercel speed insight system.
 	injectSpeedInsights();
+	injectAnalytics();
 
 	let mouseLocation = $state({ x: 0, y: 0 });
+	beforeNavigate(() => (isLoading = true));
+	afterNavigate(() => (isLoading = false));
 
 	onMount(() => {
 		document.addEventListener('mousemove', (event) => {
@@ -37,16 +41,20 @@
 	<meta property="title" content="thefirey33's site" />
 	<meta property="charset" content="utf-8" />
 </svelte:head>
-
-{#if !isLoading}
+{#if !mysteryActive}
+	<TopTitleBar {showTurkiye} />
+{/if}
+{#if isLoading}
 	<div class="bg-black w-screen h-screen left-0 top-0 fixed z-20 flex">
 		<p class="text-white text-center m-auto">loading please wait, 100%</p>
 		<audio src={LoadingPleaseWaitOneHundredPercent} autoplay></audio>
 	</div>
 {/if}
-{#if !mysteryActive}
-	<TopTitleBar {showTurkiye} />
-{/if}
+<!-- the top titlebar that loads practically everywhere -->
+<div class={!mysteryActive ? 'pt-30 md:pt-0 md:ml-0 ml-(--max-titlebar)' : ''}>
+	{@render children?.()}
+</div>
+<!-- the tooltip -->
 <span
 	class="fixed left-0 top-8 bottom-0 right-0"
 	style="transform: translate({mouseLocation.x}px, {mouseLocation.y}px);"
@@ -58,8 +66,3 @@
 		{$tooltip}
 	</h1>
 </span>
-<!-- the top titlebar that loads practically everywhere -->
-<div class={!mysteryActive ? 'md:ml-0 ml-(--max-titlebar) pt-30 md:pt-0' : ''}>
-	{@render children?.()}
-</div>
-<!-- the tooltip -->

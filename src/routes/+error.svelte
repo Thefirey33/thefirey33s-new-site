@@ -10,10 +10,11 @@
 	import WebsiteGuy from '$lib/assets/imgs/website_guy.gif';
 	import { websiteIconURL } from '$lib';
 	import { page } from '$app/state';
+
+	let DogPlayer: HTMLAudioElement;
 	onMount(() => {
 		document.documentElement.style.setProperty(BACKGROUND_CSS_VAL, 'none');
 		$websiteIconURL = WebsiteGuyJam;
-
 		return () => {
 			document.documentElement.style.setProperty(BACKGROUND_CSS_VAL, `url(${BarrensWalpaper})`);
 			$websiteIconURL = WebsiteGuy;
@@ -21,8 +22,13 @@
 	});
 </script>
 
-<div class="m-auto absolute left-0 right-0 top-0 bottom-0 flex flex-col h-fit w-fit">
+<button
+	onclick={() => {
+		DogPlayer.play();
+	}}
+	class="m-auto absolute left-0 right-0 top-0 bottom-0 flex flex-col h-fit w-fit cursor-pointer"
+>
 	<img src={DogCheck} alt="Dog." width="80" class="ml-auto mr-auto" />
 	<h1 class="text-center text-2xl">{page.status}</h1>
-</div>
-<audio src={DanceOfDog} autoplay loop></audio>
+</button>
+<audio bind:this={DogPlayer} src={DanceOfDog} autoplay loop></audio>

@@ -20,7 +20,7 @@
 	{
 		"title": "Feed The Noik!",
 		"description": "A game where you feed the Noik, their favorite thing... PANCAKES!",
-		"image": "https://github.com/Thefirey33/feed-the-noik/raw/master/public/niko_pancake.jpg",
+		"image": "/imgs/noik.jpg",
 		"link": "https://github.com/Thefirey33/feed-the-noik"
 	},
 	{

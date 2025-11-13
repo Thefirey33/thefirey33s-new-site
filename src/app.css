@@ -7,7 +7,7 @@ body {
 	/* background animation */
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center center;
+	background-position: calc(50% + var(--background-x)) var(--background-y);
 	background-image: var(--background-img);
 	animation: var(--current-background-animation) 1s infinite linear;
 }
@@ -41,6 +41,14 @@ body {
 		background-color: black;
 		background-image: url('$lib/assets/toolbar/programming.png');
 		animation: backgroundMove 10s infinite linear;
+		background-repeat: round;
+	}
+
+	.me-background {
+		background-color: black;
+		background-image: url('$lib/assets/imgs/website_guy.gif');
+		animation: background-move-top 50s infinite linear;
+		background-repeat: round;
 	}
 
 	.spamton-text {
@@ -50,10 +58,38 @@ body {
 		-webkit-text-stroke: 0.5px black;
 	}
 
+	.important-event {
+		animation: important-event 3s infinite both cubic-bezier(0.5, 0, 0, 1);
+	}
+
 	.cplusplusbackground {
 		background-color: black;
 		background-image: url('$lib/assets/imgs/game_assets/cpluspluslogo.gif');
 		animation: backgroundMove 20s infinite linear;
+	}
+}
+
+@keyframes background-move-top {
+	from {
+		background-position: 0% 0%;
+	}
+
+	to {
+		background-position: 100% 100%;
+	}
+}
+
+@keyframes important-event {
+	0% {
+		scale: 1.2;
+		background-color: white;
+		rotate: 10deg;
+		box-shadow: 0px 0px 50px white;
+	}
+
+	100% {
+		scale: 1.0;
+		rotate: 0deg;
 	}
 }
 
@@ -82,13 +118,12 @@ body {
 
 @keyframes backgroundMove {
 	from {
-		background-size: cover cover;
 		background-position-y: 0%;
 		background-position-x: 0%;
 	}
 
 	to {
-		background-size: cover cover;
+
 		background-position-y: 100%;
 		background-position-x: 100%;
 	}
@@ -98,4 +133,6 @@ body {
 	--max-titlebar: calc(var(--spacing) * 20);
 	--background-img: url('$lib/assets/imgs/walpapers/barrens.png');
 	--current-background-animation: none;
+	--background-x: 0px;
+	--background-y: 0px;
 }

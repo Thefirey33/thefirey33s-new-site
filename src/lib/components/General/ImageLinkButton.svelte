@@ -1,9 +1,9 @@
 <script lang="ts">
 	import LinkButton from './LinkButton.svelte';
 
-	let { hrefSource, imageSourceLink }: { hrefSource: string; imageSourceLink: string } = $props();
+	let { hrefSource, imageSourceLink, important = false } = $props();
 </script>
 
-<LinkButton linkTowards={hrefSource}>
+<LinkButton linkTowards={hrefSource} {important}>
 	<img src={imageSourceLink} alt="Link Button" draggable="false" />
 </LinkButton>

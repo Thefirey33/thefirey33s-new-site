@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { birthdayTime } from '$lib';
 	import SpinningNoik from '$lib/assets/imgs/noik-spin.gif';
 
 	// this was done to keep the code smaller.

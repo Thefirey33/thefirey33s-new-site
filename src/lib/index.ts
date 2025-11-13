@@ -35,3 +35,7 @@ export const achievementGet = writable(false);
 export const websiteIconURL = writable(IconOfWebsite);
 
 export const tooltip = writable('');
+
+export const birthdayTime = writable(false);
+
+export const websitePosition = writable({ x: 0, y: 0 })
