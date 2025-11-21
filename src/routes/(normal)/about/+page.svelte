@@ -11,7 +11,7 @@
 	<hr class="mt-5 mb-5" />
 	<p>
 		Hello. I am a Turkish Programmer currently residing in Izmir, Türkiye. I generally like indie
-		games like OneShot, deltarune, Undertale.
+		games like OneShot, deltarune, Undertale. I am {new Date().getFullYear() - 2010} years old.
 	</p>
 	<p>I generally use C#, C++, Python and TypeScript. But there's tons of other languages i know.</p>
 	<hr class="mt-5 mb-5" />
